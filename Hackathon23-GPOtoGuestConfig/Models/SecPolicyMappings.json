@@ -1,0 +1,34 @@
+{
+  "Mappings": [
+    {
+      "name": "MaximumPasswordAge",
+      "url": "https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4ceb8dc2-559c-478b-a15b-733fbf1e3738",
+      "GuestConfigParamName": "Maximum Password Age"
+    },
+    {
+      "name": "MinimumPasswordAge",
+      "url": "https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F<definition_id>",
+      "GuestConfigParamName": "Minimum Password Age"
+    },
+    {
+      "name": "PasswordComplexity",
+      "url": "https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F<definition_id>",
+      "GuestConfigParamName": "Password must meet complexity requirements"
+    },
+    {
+      "name": "LockoutBadCount",
+      "url": "https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F<definition_id>",
+      "GuestConfigParamName": "Account lockout threshold"
+    },
+    {
+      "name": "ResetLockoutCount",
+      "url": "https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F<definition_id>",
+      "GuestConfigParamName": "Reset account lockout counter after"
+    },
+    {
+      "name": "LockoutDuration",
+      "url": "https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F<definition_id>",
+      "GuestConfigParamName": "Account Lockout Duration"
+    }
+  ]
+}

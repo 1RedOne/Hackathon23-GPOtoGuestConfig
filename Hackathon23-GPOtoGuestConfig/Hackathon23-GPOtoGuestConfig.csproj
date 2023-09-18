@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Hackathon23_GPOtoGuestConfig</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="jsonResquest.json" />
+    <Content Remove="Models\SecPolicyMappings.json" />
+    <Content Remove="Services\template.json" />
+    <Content Remove="wwwroot\js\particles.js" />
+    <Content Remove="wwwroot\js\particles.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Services\jsonResquest.template" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Models\SecPolicyMappings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jsonResquest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\template.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\js\particles.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\js\particles.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="jsonResquest.json" />
+  </ItemGroup>
+
+</Project>

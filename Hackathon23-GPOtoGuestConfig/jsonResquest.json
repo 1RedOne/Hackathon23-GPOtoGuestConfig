@@ -1,0 +1,47 @@
+{
+    "id": "/subscriptions/cdd53a71-7d81-493d-bce6-224fec7223a9/resourceGroups/myVm_group/providers/Microsoft.Compute/virtualMachines/MYVM/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/AzureWindowsBaseline",
+    "name": "AzureWindowsBaseline",
+    "location": "westus2",
+    "properties": {
+        "context": "Policy",
+        "guestConfiguration": {
+            "kind": "Machine Configuration",
+            "name": "AzureWindowsBaseline",
+            "version": "1.*",
+            "contentUri": null,
+            "contentHash": null,
+            "contentType": "Builtin",
+            "assignmentType": "ApplyAndAutoCorrect",
+            "configurationParameter": [
+                {
+                    "name": "Minimum Password Length;ExpectedValue",
+                    "value": "16"
+                },
+                {
+                    "name": "Minimum Password Length;RemediateValue",
+                    "value": "16"
+                },
+                {
+                    "name": "Maximum Password Age;ExpectedValue",
+                    "value": "75"
+                },
+                {
+                    "name": "Maximum Password Age;RemediateValue",
+                    "value": "75"
+                }
+            ],
+            "configurationProtectedParameter": [],
+            "configurationSetting": {
+                "configurationMode": "ApplyAndAutoCorrect",
+                "allowModuleOverwrite": false,
+                "actionAfterReboot": "",
+                "refreshFrequencyMins": 5,
+                "rebootIfNeeded": true,
+                "configurationModeFrequencyMins": 15
+            }
+        },
+        "provisioningState": "Succeeded",
+        "resourceType": null,
+        "vmssVMList": null
+    }
+}

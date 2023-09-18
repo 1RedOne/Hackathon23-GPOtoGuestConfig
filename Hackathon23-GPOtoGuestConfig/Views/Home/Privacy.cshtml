@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Local Security Policy vs Active Directory Group Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Local Security Policy is a feature in Windows that allows you to configure security settings on a local device. You can use it to view and edit audit policies, user rights assignments, and other system policies on your computer [^2^][1] [^1^][2]. </p>
+
+<p>Local Security Policy is different from Active Directory Group Policy, which is used to manage security settings for multiple devices on a network. Group Policy settings are stored in Group Policy Objects (GPOs) that are linked to Active Directory containers such as domains, sites, and organizational units [^3^][6] [^4^][9]. </p>
+
+<p>When a GPO is applied to a device, it overrides any conflicting settings in the Local Security Policy. However, if a setting is not defined in the GPO, the Local Security Policy setting will be used instead [^5^][5] [^6^][7]. </p>
+<img src="~/img/local-security-policy-windows-10-1.png" />
+<h2>Sources</h2>
+<ol> 
+    <li>
+        <a href=“https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings”>
+            Security Policy Settings
+        </a>
+    </li> 
+    <li>
+        <a href=“https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/local-security-policy-management”>
+            Local Security Policy Management
+        </a>
+    </li> 
+    <li>
+        <a href=“https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/group-policies”>
+            Get started with Group Policy
+        </a>
+    </li> 
+    <li><a href=“https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/group-policy-basics”>Group Policy basics</a></li> 
+    <li><a href=“https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/group-policy-processing-order”>Group Policy processing order</a></li> 
+    <li><a href=“https://docs.microsoft.com/en-us/windows-server/networking/core-network-guide/cncg/server-cfg/manage-group-policies-with-gpmc”>Manage Group Policies with GPMC</a></li>
+    <li><a href=“https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/group-policy-processing-and-precedence”>Group Policy processing and precedence</a></li> 
+    <li><a href=“https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/group-policy-object-editor-overview”>Group Policy Object Editor overview</a></li> 
+    <li><a href=“https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/deploy/appendix-a–group-policy-object-editor-extensions”>Appendix A: Group Policy Object Editor extensions</a></li> 
+            </ol>

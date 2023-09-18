@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="siteContent">
+<div class="text-center">
+    <h1 class="display-4">Welcome to GPO->2->GuestConfig</h1>
+    <p>This service allows you to upload your Security Policy or Group Policy and verify if it can be natively upgraded into a Guest Configuration Policy! </p>
+        <ul>
+            <li>
+                <a href="https://docs.microsoft.com/aspnet/core">How to export your Security Policy</a>.
+            </li>
+        <li>
+                <a href="https://deviceadvice.io/2020/11/23/use-group-policy-analytics-to-convert-gpos-to-intune-configuration-profiles/">How to export a Group Policy</a>.
+        </li>
+            <li><a href="https://learn.microsoft.com/en-us/mem/intune/configuration/group-policy-analytics-migrate">Intune GPO Import Support via MDM</a></li>
+        </ul>
+    <button class="accordion">Security Policy</button>
+    <div class="panel">
+            <p>Here is some generic business text about Security Policy from Active Directory.</p>
+            <p>This tool allows you to upload a <b>Security Policy export .inf file</b> which will be parsed and analyzed for conversion to native Guest Config Policies.</p>
+
+            <form method=post action="Home/Upload" enctype="multipart/form-data">
+                <input type="file" name="file" value="Click Me" />
+                <button type="submit" id="upload-button-1">Upload</button>
+            </form>
+    </div>
+
+    <button class="accordion">Group Policy</button>
+    <div class="panel">
+            <p>Group Policy is an infrastructure that allows you to specify managed configurations for users and computers through Group Policy settings and Group Policy Preferences.</p>
+            <p>This tool allows you to upload a <b>Group Policy Report</b> which will be parsed and analyzed for conversion to native Guest Config Policies.</p>
+
+
+            <input type="file" accept="*" id="file-picker-2">
+        <button type="submit" id="upload-button-2">Upload</button>
+    </div>
+
+</div>
+</div>
+

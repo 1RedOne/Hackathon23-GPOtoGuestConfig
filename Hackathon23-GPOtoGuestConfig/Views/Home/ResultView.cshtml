@@ -1,0 +1,159 @@
+﻿@model Hackathon23_GPOtoGuestConfig.Services.ResultViewModel
+
+@{
+    int matches = @Model.Results.Where(x => x.IsMatch).Count();
+    int totalRecords = @Model.Results.Count();
+    int notSupported = totalRecords - matches;
+}
+<!DOCTYPE html>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<div class="siteContent">
+    <div class="text-center">
+        <h1 class="display-4">Security Policy to Guest Config Summary</h1>
+    </div>
+</div>
+<div id="piechart" style="width: 900px; height: 500px; padding-top:120px"></div>
+<script src="https://localhost:7111/js/particles.js"></script>
+
+
+<div id="particles-js">    </div>
+
+
+<script>
+    particlesJS.load('particles-js', 'https://localhost:7111/js/particles.json', function () {
+        console.log('callback - particles.js config loaded');
+    });</script>
+<p>
+    Your policy of type @Model.Results.First().SecurityPolicyName has been validated for conversion to native Guest Configuration Policies!
+    <br />
+    Of your @totalRecords settings, @matches are supported by Guest Configuration Policies.
+    <br />
+
+    <script>
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Mapping Available', @matches],
+                ['Not Supported', @notSupported]
+            ]);
+
+            var options = {
+                title: 'Policies Suitable for Conversion'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }</script>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Results.First().SectionHeading)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Results.First().PropertyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Results.First().PropertyValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Results.First().GuestConfigValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Results.First().IsMatch)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Results)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SectionHeading)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PropertyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PropertyValue)
+                </td>
+                <td>
+                    @if (item.IsMatch)
+                    {
+                        <a href="@item.GuestConfigValue">MatchingPolicy</a>
+                    }
+                    else
+                    {
+                        <a href="@item.GuestConfigValue">NonMatchingPolicy</a>
+                    }
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsMatch)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="text-center">
+    <h1 class="display-4">Generated Artifacts</h1>
+</div>
+
+
+<button class="accordion">Arm Template</button>
+<div class="panel">
+    <p>Great for one off testing!</p>
+    <textarea id="json-textarea1" label="mine" title="HoldsCustomizedTemplate" style="height: 840px;">
+        @Model.CustomizedTemplateValue
+</textarea>
+    <script>
+        var editor = new JSONEditor(document.getElementById('json-textarea1'), {
+            mode: 'code',
+            theme: 'materialize',
+            indentation: 2,
+            expand_height: true
+        });
+    </script>
+</div>
+
+<button class="accordion">HTTP Request</button>
+<div class="panel">
+    <p>Great for one off testing!</p>
+    <textarea id="json-textarea1" label="mine" title="HoldsCustomizedTemplate" style="height: 840px;">
+        @Model.WebRequest
+</textarea>
+    <script>
+        var editor = new JSONEditor(document.getElementById('json-textarea1'), {
+            mode: 'code',
+            theme: 'materialize',
+            indentation: 2,
+            expand_height: true
+        });
+    </script>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jsoneditor@9.1.8/dist/jsoneditor.min.js"></script>
+<script>
+    var editor = new JSONEditor(document.getElementById('json-textarea1'), {
+        mode: 'code',
+        theme: 'materialize',
+        indentation: 2,
+        expand_height: true
+    });
+</script>
+
+<a href="https://ms.portal.azure.com/#@@microsoft.onmicrosoft.com/resource/subscriptions/cdd53a71-7d81-493d-bce6-224fec7223a9/resourceGroups/myVm_group/providers/Microsoft.Compute/virtualMachines/MYVM/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/AzureWindowsBaseline/overview">
+    See this policy in action!
+    </a>
+
+
+

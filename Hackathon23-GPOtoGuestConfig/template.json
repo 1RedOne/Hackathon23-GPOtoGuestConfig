@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "resources": [
+    {
+      "apiVersion": "2020-06-25",
+      "type": "Microsoft.Compute/virtualMachines/providers/guestConfigurationAssignments",
+      "name": "MYVM/Microsoft.GuestConfiguration/AzureWindowsBaseline",
+      "location": "westus2",
+
+      "properties": {
+        "guestConfiguration": {
+          "name": "AzureWindowsBaseline",
+          "version": "1.*",
+          "assignmentType": "ApplyAndMonitor",
+          "configurationParameter": [
+            {
+              "name": "Minimum Password Length;ExpectedValue",
+              "value": "16"
+            },
+            {
+              "name": "Minimum Password Length;RemediateValue",
+              "value": "16"
+            },
+            {
+              "name": "Maximum Password Age;ExpectedValue",
+              "value": "75"
+            },
+            {
+              "name": "Maximum Password Age;RemediateValue",
+              "value": "75"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
